@@ -21,3 +21,19 @@ The very default is simple, just enough to install pretty much everything most p
   - name matches exactly, it overwrites it all
   - initial number is lower than default, it will be preppended
   - otherwise will append
+
+# Configuration file
+The main directive is `vars`. As the name says, represents the template variables. All other directives will be interpreted as variables as well, but the idea is that you have more oportunities to use this variables. Let me show an example of a post script using this principle:
+```ini
+[vars]
+some = shit
+
+[post]
+echo I am executing bash here
+echo Here too :)
+
+[pre]
+# includes the file contents
+%(examples/pre.sh)
+echo Back to bash
+```
